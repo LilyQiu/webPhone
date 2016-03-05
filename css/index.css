@@ -19,6 +19,7 @@ body{margin:0;position:relative; font-family:Arial,"微软雅黑";color:#666; fo
 
 
 /*欢迎页*/
+#welcome{ -webkit-transition:.7s;}
 @-webkit-keyframes tree{
 	100%{
 		-webkit-transform:translateY(0);

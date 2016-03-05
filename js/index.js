@@ -40,3 +40,27 @@ function removeClass(obj, sClass) {
         }
     }
 }
+
+function fnLoad(){
+	var oW=id('welcome');
+	var bTime=false;
+	var bImgTime=true;
+	var iTime=new Date().getTime();
+	var oTimer=0;
+	bind(oW,"webkitTransitionEnd",end);
+	bind(oW,"transitionend",end);
+	oTimer=setInterval(function(){
+		if(new Date().getTime()-iTime>=5000){
+			bTime=true;	
+		}	
+		if(bImgTime&&bTime){
+			clearInterval(oTimer);
+			//alert('执行跳转了');
+			oW.style.opacity=0;	
+		}
+	},1000);
+	function end()
+	{
+		removeClass(oW,"pageShow");
+	}
+}
