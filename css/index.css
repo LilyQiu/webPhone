@@ -19,15 +19,91 @@ body{margin:0;position:relative; font-family:Arial,"微软雅黑";color:#666; fo
 
 
 /*欢迎页*/
-.tree{ position:absolute; left:0; top:10%; width:100%;}
-#logo{ text-align:center; width:100%; position:absolute; bottom:5%; }
-.welcome2{ position:relative; padding-top:50px;}
-.shake{ position:absolute; top:12px; left:509px; width:28px;height:31px; background:url(../img/shake.png) no-repeat;}
-.tree3{padding-top:20px;}
-.cloud{position:absolute; background:url(../img/cloud.png) no-repeat; background-size:contain; }
-.cloud:nth-of-type(1){ top:15px; left:423px; width:58px; height:44px;}
-.cloud:nth-of-type(2){ top:77px; left:79px; width:91px; height:70px;}
-.cloud:nth-of-type(3){ top:142px; left:402px; width:54px; height:41px;}
+@-webkit-keyframes tree{
+	100%{
+		-webkit-transform:translateY(0);
+		opacity:1;
+	}
+}
+@keyframes tree{
+	100%{
+		transform:translateY(0);
+		opacity:1;
+	}
+}
+@-webkit-keyframes logo{
+	100%{
+		opacity:1;
+	}
+}
+@-webkit-keyframes shake
+{
+	0%
+	{
+		-webkit-transform:rotate(-50deg);
+	}
+	10%
+	{
+		-webkit-transform:rotate(45deg);
+	}
+	20%
+	{
+		-webkit-transform:rotate(-40deg);
+	}
+	30%
+	{
+		-webkit-transform:rotate(35deg);
+	}
+	40%
+	{
+		-webkit-transform:rotate(-30deg);
+	}
+	50%
+	{
+		-webkit-transform:rotate(25deg);
+	}
+	60%
+	{
+		-webkit-transform:rotate(-20deg);
+	}
+	70%
+	{
+		-webkit-transform:rotate(15deg);
+	}
+	80%
+	{
+		-webkit-transform:rotate(-10deg);
+	}
+	90%
+	{
+		-webkit-transform:rotate(5deg);
+	}
+	100%
+	{
+		-webkit-transform:rotate(0deg);
+	}
+}
+@-webkit-keyframes cloud
+{
+	0%
+	{
+		-webkit-transform:translateX(0px);
+	}
+	100%
+	{
+		-webkit-transform:translateX(-50px);
+	}
+	
+}
+.tree{ position:absolute; left:0; top:10%; width:100%; -webkit-transform:translateY(100px);transform:translateY(100px); opacity:0;-webkit-animation:1s tree; animation:1s tree; -webkit-animation-fill-mode:forwards; animation-fill-mode:forwards;/*到达目标点停止*/}
+#logo{ text-align:center; width:100%; position:absolute; bottom:5%; opacity:0; -webkit-animation:1s .5s logo; -webkit-animation-fill-mode:forwards;}
+.welcome2{ position:relative; padding-top:50px; ;transform:translateY(50px); opacity:0; -webkit-transform-origin:left bottom; -webkit-animation:1s .3s tree; animation-fill-mode:forwards; }
+.shake{ position:absolute; top:12px; left:509px; width:28px;height:31px; background:url(../img/shake.png) no-repeat; -webkit-animation:2s .3s shake; -webkit-animation-fill-mode:forwards;}
+.tree3{padding-top:20px; transform:translateY(30px); opacity:0; animation:1s .6s tree; animation-fill-mode:forwards; }
+.cloud{position:absolute; background:url(../img/cloud.png) no-repeat; background-size:contain;}
+.cloud:nth-of-type(1){ top:15px; left:423px; width:58px; height:44px; -webkit-animation:3s 2s cloud infinite alternate linear;}
+.cloud:nth-of-type(2){ top:77px; left:79px; width:91px; height:70px; -webkit-animation:3s 2.5s cloud infinite alternate linear;}
+.cloud:nth-of-type(3){ top:142px; left:402px; width:54px; height:41px; -webkit-animation:3s 2.8s cloud infinite alternate linear;}
 
 
 
