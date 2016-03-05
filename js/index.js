@@ -161,5 +161,71 @@ function fnScore(){
 			});
 		}
 	}
+	fnIndex();
+}
+function fnInfo(oInfo,sInfo)
+{
+	oInfo.innerHTML=sInfo;
+	oInfo.style.WebkitTransform="scale(1)";
+	oInfo.style.opacity=1;
+	setTimeout(function(){
+		oInfo.style.WebkitTransform="scale(0)";
+		oInfo.style.opacity=0;
+	},1000);
+}
+function fnIndex(){
+	var oIndex=id("index");
+	var oBtn=oIndex.getElementsByClassName("btn")[0];
+	var oInfo=oIndex.getElementsByClassName("info")[0];
+	var bScore=false;
+	bind(oBtn,"touchend",fnEnd);
+	function fnEnd()
+	{
+		bScore=fnScoreChecked();
+		if(bScore)
+		{
+			if(bTag())
+			{
+				fnIndexOut();		
+			}
+			else
+			{
+				fnInfo(oInfo,"给景区添加标签");	
+			}
+		}
+		else
+		{
+			fnInfo(oInfo,"给景区评分");
+		}
+	}
+	function fnScoreChecked()
+	{
+		var oScore=id("score");
+		var aInput=oScore.getElementsByTagName("input");
+		for(var i=0;i<aInput.length;i++)
+		{
+			if(aInput[i].value==0)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+	function bTag()
+	{
+		var oTag=id("indexTag");
+		var aInput=oTag.getElementsByTagName("input");
+		for(var i=0;i<aInput.length;i++)
+		{
+			if(aInput[i].checked)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
 }
 
+function fnIndexOut(){
+	alert('进入评分完毕');
+}
