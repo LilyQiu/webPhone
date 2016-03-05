@@ -64,3 +64,71 @@ function fnLoad(){
 		removeClass(oW,"pageShow");
 	}
 }
+
+
+bind(document,"touchmove",function(ev){
+	ev.preventDefault();	
+});
+function fnTab(){
+	var oTab=id('tabPic');	
+	var oList=id('picList');
+	var aNav=oTab.getElementsByTagName('nav')[0].children;	
+	var iNow=0;
+	var iX=0;
+	var iW=view().w;
+	var oTimer=0;
+	var iStart=0;
+	var iStartTouchX=0;
+	auto();
+	function auto(){
+		oTimer=setInterval(function(){
+			iNow++;	
+			iNow=iNow%aNav.length;
+			tab();
+		},2000);
+	}
+	bind(oTab,"touchstart",fnStart);
+	bind(oTab,"touchmove",fnMove);
+	bind(oTab,"touchend",fnEnd);
+	function fnStart(ev){
+		oList.style.WebKitTransition=oList.style.transition="0.5s";         /*清除掉*/
+		var ev=ev.changedTouches[0];
+		iStartTouchX=ev.pageX;
+		iStart=iX;
+		clearInterval(oTimer);
+	}
+	function fnMove(ev){
+		var ev=ev.changedTouches[0];
+		var iDis=ev.pageX-iStartTouchX;
+		iX=iStart+iDis;
+		oList.style.WebKitTransform=oList.style.transform="translateX("+iX+"px)";
+	}
+	function fnEnd()
+	{
+		iNow=iX/iW;
+		iNow=-Math.round(iNow);
+		//console.log(iX);
+		if(iNow<0)
+		{
+			iNow=0;
+		}
+		if(iNow>aNav.length-1)
+		{
+			iNow=aNav.length-1;
+		}
+		tab();
+		auto();
+	}
+	
+	function tab(){
+		iX=-iNow*iW;
+		oList.style.WebKitTransition=oList.style.transition="0.5s";
+		oList.style.WebKitTransform=oList.style.transform="translateX("+iX+"px)";
+		for(var i=0;i<aNav.length;i++){
+			removeClass(aNav[i],"active");	
+		}
+		addClass(aNav[iNow],"active");	
+	}
+	
+
+}
