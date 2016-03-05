@@ -106,7 +106,16 @@ body{margin:0;position:relative; font-family:Arial,"微软雅黑";color:#666; fo
 .cloud:nth-of-type(2){ top:77px; left:79px; width:91px; height:70px; -webkit-animation:3s 2.5s cloud infinite alternate linear;}
 .cloud:nth-of-type(3){ top:142px; left:402px; width:54px; height:41px; -webkit-animation:3s 2.8s cloud infinite alternate linear;}
 
-
+/*首页*/
+#tabPic{ overflow:hidden; position:relative;}
+#picList{ overflow:hidden;width:500%;}
+#picList li{float:left; width:20%;}
+#picList img{ width:100%; height:342px;}
+.picMask{height:102px; position:absolute;left:0;bottom:0;width:100%; background:-webkit-linear-gradient(bottom,rgba(0,0,0,0.9) 0,rgba(0,0,0,0.8) 10%,rgba(0,0,0,0));background:linear-gradient(bottom,rgba(0,0,0,0.9) 0,rgba(0,0,0,0.8) 20%,rgba(0,0,0,0));}
+.picMask p{ font-size:29px; line-height:120px; text-indent:26px; color:#fff;}
+.picMask nav{height:10px; right:26px; top:56px; position:absolute;}
+.picMask nav a{float:left;width:10px;height:10px; border-radius:5px;background:#fff; opacity:0.5;margin-left:15px;}
+.picMask nav a.active{ opacity:1;}
 
 /* news */
 
