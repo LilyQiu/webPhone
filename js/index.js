@@ -79,7 +79,9 @@ function fnTab(){
 	var oTimer=0;
 	var iStart=0;
 	var iStartTouchX=0;
+	var arr=[];
 	auto();
+	fnScore();
 	function auto(){
 		oTimer=setInterval(function(){
 			iNow++;	
@@ -129,6 +131,35 @@ function fnTab(){
 		}
 		addClass(aNav[iNow],"active");	
 	}
-	
-
 }
+
+function fnScore(){
+	var oScore=id("score");
+	var aLi=oScore.getElementsByTagName("li");
+	var arr=["好失望","没有想象的那么差","很一般","良好","棒极了"];
+	for(var i=0;i<aLi.length;i++){
+		fn(aLi[i]);
+	}
+	function fn(oLi){
+		var aNav=oLi.getElementsByTagName("a");
+		var oInput=oLi.getElementsByTagName("input")[0];
+		for(var i=0;i<aNav.length;i++){
+			aNav[i].index=i;
+			bind(aNav[i],"touchstart",function(){
+				for(var i=0;i<aNav.length;i++)
+				{
+					if(i<=this.index)
+					{
+						addClass(aNav[i],"active");
+					}					
+					else
+					{
+						removeClass(aNav[i],"active");
+					}
+				}
+				oInput.value=arr[this.index];
+			});
+		}
+	}
+}
+
