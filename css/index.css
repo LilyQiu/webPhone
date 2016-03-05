@@ -18,6 +18,17 @@ body{margin:0;position:relative; font-family:Arial,"微软雅黑";color:#666; fo
 .page:nth-of-type(5){ z-index:6;}
 
 
+/*欢迎页*/
+.tree{ position:absolute; left:0; top:10%; width:100%;}
+#logo{ text-align:center; width:100%; position:absolute; bottom:5%; }
+.welcome2{ position:relative; padding-top:50px;}
+.shake{ position:absolute; top:12px; left:509px; width:28px;height:31px; background:url(../img/shake.png) no-repeat;}
+.tree3{padding-top:20px;}
+.cloud{position:absolute; background:url(../img/cloud.png) no-repeat; background-size:contain; }
+.cloud:nth-of-type(1){ top:15px; left:423px; width:58px; height:44px;}
+.cloud:nth-of-type(2){ top:77px; left:79px; width:91px; height:70px;}
+.cloud:nth-of-type(3){ top:142px; left:402px; width:54px; height:41px;}
+
 
 
 /* news */
