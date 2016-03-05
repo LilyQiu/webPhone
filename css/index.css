@@ -1,0 +1,25 @@
+@charset "utf-8";
+/* CSS Document */
+input,textarea{margin:0;padding:0;border:none; outline:none;}
+textarea{ resize:none; overflow:auto;}
+em{ font-style:normal;}
+ul{margin:0;padding:0; list-style:none;}
+h1,p,h2{margin:0; font-weight:normal;}
+a,input{-webkit-tap-highlight-color:rgba(255,0,0,0);}
+img{ border:none; vertical-align:top;}
+body{margin:0;position:relative; font-family:Arial,"微软雅黑";color:#666; font-size:26px; }
+
+.page{position:absolute; left:0;top:0;width:100%;height:100%; overflow:auto; background-color:#fff; display:none; z-index:1;}
+.pageShow{ display:block;}
+.page:nth-of-type(1){ z-index:10;}
+.page:nth-of-type(2){ z-index:9;}
+.page:nth-of-type(3){ z-index:8;}
+.page:nth-of-type(4){ z-index:7;}
+.page:nth-of-type(5){ z-index:6;}
+
+
+
+
+/* news */
+
+/* form */
