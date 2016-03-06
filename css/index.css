@@ -184,6 +184,8 @@ body{margin:0;position:relative; font-family:Arial,"微软雅黑";color:#666; fo
 .file label:nth-of-type(2){ background:url(../img/camera2.png) no-repeat center 30px;}
 .file input{ display:none;}
 
-
-
 /* form */
+#form{ background:#eee;}
+#formTag{ background:url(../img/formBg.png);height:341px;padding-top:52px; color:#fff;}
+#formTag input:checked+span{ border-color:#fff; background-color:rgba(60,155,187,0.8);}
+.formText{ box-sizing:border-box;width:100%; display:block; font-size:26px; line-height:50px; padding:10px 20px; margin-top:30px;}

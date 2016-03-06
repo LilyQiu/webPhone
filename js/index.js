@@ -279,3 +279,26 @@ function fnNewsOut()
 	oNews.style.cssText="";
 	removeClass(oNews,"pageShow");
 }
+
+function formIn(){
+	var oForm=id("form");
+	var oOver=id("over");
+	var aFormTag=id("formTag").getElementsByTagName("label");
+	var oBtn=oForm.getElementsByClassName("btn")[0];
+	var bOff=false;
+	for(var i=0;i<aFormTag.length;i++)
+	{
+		bind(aFormTag[i],"touchend",function(){
+			bOff=true;
+			addClass(oBtn,"submit");
+		});
+	}
+	bind(oBtn,"touchend",function(){
+		if(bOff)
+		{
+			addClass(oOver,"pageShow");
+			removeClass(oForm,"pageShow");
+		}
+	});
+		
+}
