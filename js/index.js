@@ -238,7 +238,8 @@ function fnIndexOut(){
 		oNews.style.transition=".8s";	
 		oMask.style.opacity=0;
 		oIndex.style.WebkitFilter=oIndex.style.filter="blur(0px)";
-		oNews.style.opacity=1;	
+		oNews.style.opacity=1;
+		removeClass(oMask,'pageShow');	 /*首页跳出后要把mask给清除掉,否则第二次上传功能失效*/
 	},1000);
 	
 }
@@ -253,6 +254,7 @@ function fnNews()
 		if(this.files[0].type.split("/")[0]=="video")
 		{
 			fnNewsOut();
+			this.value="";       /*清除缓存*/
 		}
 		else
 		{
@@ -264,6 +266,7 @@ function fnNews()
 		if(this.files[0].type.split("/")[0]=="image")
 		{
 			fnNewsOut();
+			this.value="";      /*清除缓存*/
 		}
 		else
 		{
@@ -278,6 +281,7 @@ function fnNewsOut()
 	addClass(oForm,"pageShow");
 	oNews.style.cssText="";
 	removeClass(oNews,"pageShow");
+	formIn();
 }
 
 function formIn(){
@@ -296,9 +300,25 @@ function formIn(){
 	bind(oBtn,"touchend",function(){
 		if(bOff)
 		{
+			for(var i=0;i<aFormTag.length;i++)
+			{
+				aFormTag[i].getElementsByTagName("input")[0].checked=false;    /*清空所有的form，以防下次进来时存有之前的表象*/
+			}
+			bOff=false;    /*保证下次也要走上面的验证才能进行提交*/
 			addClass(oOver,"pageShow");
 			removeClass(oForm,"pageShow");
+			removeClass(oBtn,"submit");
+			over();
 		}
 	});
 		
+}
+
+function over(){
+	var oOver=id("over");
+	var oBtn=oOver.getElementsByClassName("btn")[0];
+	bind(oBtn,"touchend",function()
+	{
+		removeClass(oOver,"pageShow");
+	});
 }
