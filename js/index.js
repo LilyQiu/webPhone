@@ -65,10 +65,6 @@ function fnLoad(){
 	}
 }
 
-
-bind(document,"touchmove",function(ev){
-	ev.preventDefault();	
-});
 function fnTab(){
 	var oTab=id('tabPic');	
 	var oList=id('picList');
