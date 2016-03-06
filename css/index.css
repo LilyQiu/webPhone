@@ -135,6 +135,12 @@ body{margin:0;position:relative; font-family:Arial,"微软雅黑";color:#666; fo
 .tags label input{ display:none;}
 .tags label span{ float:left;border:1px solid #cdd6e1;padding:0 24px; border-radius:26px;}
 .tags input:checked+span{ border-color:#3c9bbb; background-color:#3c9bbb;color:#fff;}
+
+#mask{ background:rgba(0,0,0,0.7) url(../img/mask.png) no-repeat center 300px; opacity:0; transition:1s;}
+#index{ transition:.5s;}
 /* news */
+#news{ opacity:0;}
+
+
 
 /* form */

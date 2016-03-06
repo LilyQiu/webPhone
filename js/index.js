@@ -227,5 +227,20 @@ function fnIndex(){
 }
 
 function fnIndexOut(){
-	alert('进入评分完毕');
+	var oMask=id('mask');
+	var oIndex=id('index');
+	var oNews=id('news');
+	addClass(oMask,'pageShow');
+	addClass(oNews,'pageShow');
+	setTimeout(function(){
+		oMask.style.opacity=1;
+		oIndex.style.WebkitFilter=oIndex.style.filter="blur(5px)";	
+	},20);
+	setTimeout(function(){
+		oNews.style.transition=".8s";	
+		oMask.style.opacity=0;
+		oIndex.style.WebkitFilter=oIndex.style.filter="blur(0px)";
+		oNews.style.opacity=1;	
+	},1000);
+	
 }
