@@ -62,6 +62,7 @@ function fnLoad(){
 	function end()
 	{
 		removeClass(oW,"pageShow");
+		fnTab();
 	}
 }
 
@@ -228,6 +229,7 @@ function fnIndexOut(){
 	var oNews=id('news');
 	addClass(oMask,'pageShow');
 	addClass(oNews,'pageShow');
+	fnNews();
 	setTimeout(function(){
 		oMask.style.opacity=1;
 		oIndex.style.WebkitFilter=oIndex.style.filter="blur(5px)";	
@@ -239,4 +241,41 @@ function fnIndexOut(){
 		oNews.style.opacity=1;	
 	},1000);
 	
+}
+
+function fnNews()
+{
+	var oNews=id("news");
+	var oInfo=oNews.getElementsByClassName("info")[0];
+	var aInput=oNews.getElementsByTagName("input");
+	aInput[0].onchange=function()
+	{ 
+		if(this.files[0].type.split("/")[0]=="video")
+		{
+			fnNewsOut();
+		}
+		else
+		{
+			fnInfo(oInfo,"请上传视频");
+		}
+	};
+	aInput[1].onchange=function()
+	{
+		if(this.files[0].type.split("/")[0]=="image")
+		{
+			fnNewsOut();
+		}
+		else
+		{
+			fnInfo(oInfo,"请上传图片");
+		}
+	};
+}
+function fnNewsOut()
+{
+	var oNews=id("news");
+	var oForm=id("form");
+	addClass(oForm,"pageShow");
+	oNews.style.cssText="";
+	removeClass(oNews,"pageShow");
 }

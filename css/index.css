@@ -176,7 +176,13 @@ body{margin:0;position:relative; font-family:Arial,"微软雅黑";color:#666; fo
 .newsBtn span:nth-of-type(2){ animation:newsBtn 2s .5s infinite alternate;}
 .newsBtn span:nth-of-type(3){ animation:newsBtn 2s 1s infinite alternate;}*/
 /* news */
-#news{ opacity:0;}
+#news{opacity:0; background:#eee;}
+#news h2{ line-height:80px; padding:24px 0 0 34px; font-size:26px;}
+.file{background:#fff;height:188px;}
+.file label{width:50%;height:100%;float:left; box-sizing:border-box; padding-top:100px; line-height:52px; text-align:center;}
+.file label:nth-of-type(1){border-right:1px solid #e5e5e5; background:url(../img/camera1.png) no-repeat center 20px;}
+.file label:nth-of-type(2){ background:url(../img/camera2.png) no-repeat center 30px;}
+.file input{ display:none;}
 
 
 
